@@ -1,0 +1,29 @@
+name: ai_lifestyle_twin
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0' # Updated SDK constraint
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  provider: ^6.1.5+1 # Corrected package name and added dependency
+  video_player: ^2.10.1  
+  share_plus: ^12.0.1
+  shared_preferences: ^2.5.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0 # Corrected dependency location and updated version
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.jpg # Corrected asset path
+    - assets/lifestyle_twin_logo.png
+    - assets/videos/workout_video.mp4 # Corrected asset path
