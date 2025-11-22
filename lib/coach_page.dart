@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'mission_screen.dart';
 import 'generating_plan_screen.dart';
+import 'smart_plan_chat_page.dart'; // Add this import
 import 'app_colors.dart';
 
 class CoachPage extends StatefulWidget {
@@ -154,7 +155,7 @@ class _CoachPageState extends State<CoachPage> {
             ),
             const SizedBox(height: 24),
 
-            // Generate Plan Button
+            // Generate Plan Button - Updated to navigate to chat
             Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -176,7 +177,7 @@ class _CoachPageState extends State<CoachPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const GeneratingPlanScreen()),
+                        builder: (context) => const SmartPlanChatPage()),
                   );
                 },
                 icon: const Icon(Icons.auto_awesome, color: Colors.white),

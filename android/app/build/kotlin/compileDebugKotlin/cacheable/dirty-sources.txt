@@ -1,0 +1,1 @@
+C:\Users\Mowlick\Downloads\AI_Lifestyle_Twin\android\app\src\main\kotlin\com\example\ai_lifestyle_twin\MainActivity.kt

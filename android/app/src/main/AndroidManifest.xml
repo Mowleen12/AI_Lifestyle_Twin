@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="ai_lifestyle_twin"
+        android:label="lifestyle_twin"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

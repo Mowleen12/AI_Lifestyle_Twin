@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'meal_scan_page.dart'; // Add this import
 import 'app_colors.dart';
 
 class MealsPage extends StatefulWidget {
@@ -47,7 +48,7 @@ class _MealsPageState extends State<MealsPage>
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: Colors.black.withValues(alpha: 0.1),
                 blurRadius: 4,
                 offset: const Offset(0, 2),
               ),
@@ -91,7 +92,7 @@ class _MealsPageState extends State<MealsPage>
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 4,
                   offset: const Offset(0, 2),
                 ),
@@ -164,10 +165,10 @@ class _MealsPageState extends State<MealsPage>
                     Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(16),
-                        border:
-                            Border.all(color: Colors.white.withOpacity(0.3)),
+                        border: Border.all(
+                            color: Colors.white.withValues(alpha: 0.3)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -188,14 +189,22 @@ class _MealsPageState extends State<MealsPage>
                         borderRadius: BorderRadius.circular(16),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
+                            color: Colors.black.withValues(alpha: 0.1),
                             blurRadius: 8,
                             offset: const Offset(0, 4),
                           ),
                         ],
                       ),
                       child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          // Navigate to Snap My Meal page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const MealScanPage(),
+                            ),
+                          );
+                        },
                         icon: const Icon(Icons.camera_alt,
                             color: AppColors.primaryTeal),
                         label: const Text(
@@ -229,7 +238,7 @@ class _MealsPageState extends State<MealsPage>
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.08),
+                      color: Colors.black.withValues(alpha: 0.08),
                       blurRadius: 15,
                       offset: const Offset(0, 4),
                     ),
@@ -340,7 +349,7 @@ class _MealsPageState extends State<MealsPage>
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryTeal.withOpacity(0.4),
+            color: AppColors.primaryTeal.withValues(alpha: 0.4),
             spreadRadius: 0,
             blurRadius: 20,
             offset: const Offset(0, 8),
@@ -360,7 +369,7 @@ class _MealsPageState extends State<MealsPage>
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: Colors.black.withValues(alpha: 0.08),
             spreadRadius: 0,
             blurRadius: 20,
             offset: const Offset(0, 4),
@@ -476,7 +485,7 @@ class _MealsPageState extends State<MealsPage>
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryTeal.withOpacity(0.2),
+                  color: AppColors.primaryTeal.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Text(
@@ -569,7 +578,7 @@ class _MealsPageState extends State<MealsPage>
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: color.withOpacity(0.2),
+                    color: color.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Icon(icon, color: color, size: 24),
@@ -604,10 +613,13 @@ class _MealsPageState extends State<MealsPage>
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [color.withOpacity(0.1), color.withOpacity(0.05)],
+                      colors: [
+                        color.withValues(alpha: 0.1),
+                        color.withValues(alpha: 0.05)
+                      ],
                     ),
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: color.withOpacity(0.3)),
+                    border: Border.all(color: color.withValues(alpha: 0.3)),
                   ),
                   child: Text(
                     '2/2',
@@ -639,13 +651,14 @@ class _MealsPageState extends State<MealsPage>
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color:
-            logged ? AppColors.lightMint.withOpacity(0.3) : AppColors.softGray,
+        color: logged
+            ? AppColors.lightMint.withValues(alpha: 0.3)
+            : AppColors.softGray,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: logged
-              ? AppColors.primaryTeal.withOpacity(0.5)
-              : Colors.grey.withOpacity(0.2),
+              ? AppColors.primaryTeal.withValues(alpha: 0.5)
+              : Colors.grey.withValues(alpha: 0.2),
           width: logged ? 2 : 1,
         ),
       ),
@@ -658,7 +671,7 @@ class _MealsPageState extends State<MealsPage>
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -724,7 +737,7 @@ class _MealsPageState extends State<MealsPage>
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
                     ),
-              color: logged ? Colors.grey.withOpacity(0.2) : null,
+              color: logged ? Colors.grey.withValues(alpha: 0.2) : null,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
