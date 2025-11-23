@@ -5,6 +5,21 @@ AI Lifestyle Twin is an intelligent health-coaching mobile application that crea
 
 ---
 
+## ⚠️ OpenRouter API Key Required
+This project uses the **OpenRouter API** for AI plan generation.
+
+We have used **our own OpenRouter API key** during development.  
+**For security reasons, the key is not included in this repository.**
+
+If you want to run this project on your system, you must:
+1. Create your own OpenRouter API key  
+2. Add it in the `.env` or config file following our code structure
+
+Get your free API key here:  
+https://openrouter.ai
+
+---
+
 ## 📌 Problem Statement
 Most fitness apps provide generic, one-size-fits-all plans that do not match diverse needs such as Indian diets, allergies, home-based workouts, or busy schedules. As a result, users lose motivation and often quit within the first month.  
 There is a need for a personalized, adaptive AI solution that understands users deeply and supports long-term health improvement.
@@ -13,7 +28,7 @@ There is a need for a personalized, adaptive AI solution that understands users 
 
 ## 💡 Solution
 AI Lifestyle Twin acts as a smart digital coach that personalizes everything — from diet charts to workouts — based on your goals, preferences, and lifestyle.  
-Using Google Gemini AI, the app continuously adjusts plans based on weekly progress to ensure sustainable results.
+Using AI through the OpenRouter API, the app continuously adjusts plans based on weekly progress to ensure sustainable results.
 
 ---
 
@@ -34,7 +49,7 @@ Using Google Gemini AI, the app continuously adjusts plans based on weekly progr
 ---
 
 ## 🧠 AI Technology
-- **Google Gemini 2.0 Flash**  
+- **OpenRouter AI API**  
   Used for generating personalized plans, analyzing progress, and adapting weekly recommendations.
 
 ---
@@ -43,7 +58,7 @@ Using Google Gemini AI, the app continuously adjusts plans based on weekly progr
 - **Frontend:** Flutter  
 - **Backend:** FastAPI (hosted on Render.com)  
 - **Database & Auth:** Firebase  
-- **AI Engine:** Google Gemini 2.0  
+- **AI Engine:** OpenRouter API  
 - **Storage:** Firebase Storage  
 - **Charts & UI Components:** Flutter widgets
 
