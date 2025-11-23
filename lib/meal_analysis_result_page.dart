@@ -87,7 +87,7 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: Colors.black.withValues(alpha: 0.1),
                 blurRadius: 4,
                 offset: const Offset(0, 2),
               ),
@@ -151,7 +151,7 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.accentGreen.withOpacity(0.4),
+                        color: AppColors.accentGreen.withValues(alpha: 0.4),
                         blurRadius: 15,
                         offset: const Offset(0, 6),
                       ),
@@ -162,7 +162,7 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.3),
+                          color: Colors.white.withValues(alpha: 0.3),
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
@@ -228,7 +228,7 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
                 ),
                 const SizedBox(height: 20),
 
-                // Detected Ingredients
+                // Detected Items
                 _buildCard(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -238,7 +238,8 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
                           Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              color: AppColors.primaryTeal.withOpacity(0.2),
+                              color:
+                                  AppColors.primaryTeal.withValues(alpha: 0.2),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: const Icon(
@@ -249,7 +250,7 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
                           ),
                           const SizedBox(width: 12),
                           const Text(
-                            'Detected Ingredients',
+                            'Detected Items',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -261,7 +262,8 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
-                              color: AppColors.primaryTeal.withOpacity(0.2),
+                              color:
+                                  AppColors.primaryTeal.withValues(alpha: 0.2),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
@@ -299,7 +301,8 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
                           Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              color: AppColors.accentGreen.withOpacity(0.2),
+                              color:
+                                  AppColors.accentGreen.withValues(alpha: 0.2),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: const Icon(
@@ -338,7 +341,8 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
                           Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              color: AppColors.energyOrange.withOpacity(0.2),
+                              color:
+                                  AppColors.energyOrange.withValues(alpha: 0.2),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: const Icon(
@@ -378,7 +382,7 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.primaryTeal.withOpacity(0.4),
+                        color: AppColors.primaryTeal.withValues(alpha: 0.4),
                         blurRadius: 15,
                         offset: const Offset(0, 6),
                       ),
@@ -423,7 +427,7 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: Colors.black.withValues(alpha: 0.08),
             spreadRadius: 0,
             blurRadius: 20,
             offset: const Offset(0, 4),
@@ -435,48 +439,51 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
   }
 
   Widget _buildIngredientChip(Ingredient ingredient) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            AppColors.primaryTeal.withOpacity(0.1),
-            AppColors.primaryTeal.withOpacity(0.05),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: AppColors.primaryTeal.withOpacity(0.3),
-        ),
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        maxWidth: 260, // <= KEY FIX: prevents overflow inside Wrap
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            ingredient.icon,
-            size: 16,
-            color: AppColors.primaryTeal,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              AppColors.primaryTeal.withValues(alpha: 0.1),
+              AppColors.primaryTeal.withValues(alpha: 0.05),
+            ],
           ),
-          const SizedBox(width: 6),
-          Text(
-            ingredient.name,
-            style: const TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              color: AppColors.trustBlue,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: AppColors.primaryTeal.withValues(alpha: 0.3),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              ingredient.icon,
+              size: 16,
+              color: AppColors.primaryTeal,
             ),
-          ),
-          if (ingredient.quantity != null) ...[
             const SizedBox(width: 6),
-            Text(
-              ingredient.quantity!,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
+
+            /// ✔ The TRUE fix
+            Flexible(
+              child: Text(
+                ingredient.quantity != null
+                    ? '${ingredient.name} (${ingredient.quantity})'
+                    : ingredient.name,
+                style: const TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.trustBlue,
+                ),
+                softWrap: true,
+                overflow: TextOverflow.visible,
               ),
             ),
           ],
-        ],
+        ),
       ),
     );
   }
@@ -487,17 +494,17 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: check.status == FreshnessStatus.fresh
-            ? AppColors.lightMint.withOpacity(0.3)
+            ? AppColors.lightMint.withValues(alpha: 0.3)
             : check.status == FreshnessStatus.warning
-                ? Colors.orange.withOpacity(0.1)
-                : Colors.red.withOpacity(0.1),
+                ? Colors.orange.withValues(alpha: 0.1)
+                : Colors.red.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: check.status == FreshnessStatus.fresh
-              ? AppColors.accentGreen.withOpacity(0.5)
+              ? AppColors.accentGreen.withValues(alpha: 0.5)
               : check.status == FreshnessStatus.warning
-                  ? Colors.orange.withOpacity(0.5)
-                  : Colors.red.withOpacity(0.5),
+                  ? Colors.orange.withValues(alpha: 0.5)
+                  : Colors.red.withValues(alpha: 0.5),
         ),
       ),
       child: Row(
@@ -558,12 +565,12 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            plan.color.withOpacity(0.1),
-            plan.color.withOpacity(0.05),
+            plan.color.withValues(alpha: 0.1),
+            plan.color.withValues(alpha: 0.05),
           ],
         ),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: plan.color.withOpacity(0.3)),
+        border: Border.all(color: plan.color.withValues(alpha: 0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -573,7 +580,7 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: plan.color.withOpacity(0.2),
+                  color: plan.color.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(plan.icon, color: plan.color, size: 20),
@@ -632,7 +639,7 @@ class _MealAnalysisResultPageState extends State<MealAnalysisResultPage>
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.2),
+        color: color.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(

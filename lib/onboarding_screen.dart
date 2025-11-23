@@ -118,9 +118,9 @@ class _OnboardingScreenState extends State<OnboardingScreen>
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              _pages[_currentPage].color.withOpacity(0.1),
+              _pages[_currentPage].color.withValues(alpha: 0.1),
               AppColors.softGray,
-              _pages[_currentPage].color.withOpacity(0.05),
+              _pages[_currentPage].color.withValues(alpha: 0.05),
             ],
           ),
         ),
@@ -136,7 +136,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     if (_currentPage < _pages.length - 1)
                       TextButton(
                         onPressed: _skipToLogin,
-                        child: Text(
+                        child: const Text(
                           'Skip',
                           style: TextStyle(
                             color: AppColors.trustBlue,
@@ -186,14 +186,16 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                                         end: Alignment.bottomRight,
                                         colors: [
                                           _pages[index].color,
-                                          _pages[index].color.withOpacity(0.7),
+                                          _pages[index]
+                                              .color
+                                              .withValues(alpha: 0.7),
                                         ],
                                       ),
                                       boxShadow: [
                                         BoxShadow(
                                           color: _pages[index]
                                               .color
-                                              .withOpacity(0.3),
+                                              .withValues(alpha: 0.3),
                                           blurRadius: 20,
                                           spreadRadius: 5,
                                           offset: const Offset(0, 10),
@@ -239,72 +241,78 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               ),
 
               // Page indicators
-              Expanded(
-                flex: 1,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        _pages.length,
-                        (index) => AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          width: _currentPage == index ? 24 : 8,
-                          height: 8,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: _currentPage == index
-                                ? _pages[index].color
-                                : Colors.grey.withOpacity(0.3),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 32),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 56,
-                        child: ElevatedButton(
-                          onPressed: _nextPage,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: _pages[_currentPage].color,
-                            foregroundColor: Colors.white,
-                            elevation: 8,
-                            shadowColor:
-                                _pages[_currentPage].color.withOpacity(0.4),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
+              Flexible(
+                child: SingleChildScrollView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  child: IntrinsicHeight(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(
+                            _pages.length,
+                            (index) => AnimatedContainer(
+                              duration: const Duration(milliseconds: 300),
+                              margin: const EdgeInsets.symmetric(horizontal: 4),
+                              width: _currentPage == index ? 24 : 8,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                                color: _currentPage == index
+                                    ? _pages[index].color
+                                    : Colors.grey.withValues(alpha: 0.3),
+                              ),
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                _currentPage == _pages.length - 1
-                                    ? 'Get Started'
-                                    : 'Next',
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                        ),
+                        const SizedBox(height: 32),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 32),
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: 56,
+                            child: ElevatedButton(
+                              onPressed: _nextPage,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: _pages[_currentPage].color,
+                                foregroundColor: Colors.white,
+                                elevation: 8,
+                                shadowColor: _pages[_currentPage]
+                                    .color
+                                    .withValues(alpha: 0.4),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
                               ),
-                              const SizedBox(width: 8),
-                              Icon(
-                                _currentPage == _pages.length - 1
-                                    ? Icons.rocket_launch_rounded
-                                    : Icons.arrow_forward_rounded,
-                                size: 20,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    _currentPage == _pages.length - 1
+                                        ? 'Get Started'
+                                        : 'Next',
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Icon(
+                                    _currentPage == _pages.length - 1
+                                        ? Icons.rocket_launch_rounded
+                                        : Icons.arrow_forward_rounded,
+                                    size: 20,
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
-                      ),
+                        const SizedBox(height: 32),
+                      ],
                     ),
-                    const SizedBox(height: 32),
-                  ],
+                  ),
                 ),
               ),
             ],

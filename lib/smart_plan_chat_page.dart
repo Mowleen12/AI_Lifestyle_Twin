@@ -147,7 +147,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: Colors.black.withValues(alpha: 0.1),
                 blurRadius: 4,
                 offset: const Offset(0, 2),
               ),
@@ -158,28 +158,21 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
             onPressed: () => Navigator.pop(context),
           ),
         ),
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Opacity(
-              opacity: 0.2,
-              child: Image.asset(
-                'assets/lifestyle_twin_logo.png',
-                height: 28,
-                width: 28,
-                fit: BoxFit.cover,
+        title: const Expanded(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(width: 12),
+              Text(
+                'Smart Plan Generator',
+                style: TextStyle(
+                  color: AppColors.trustBlue,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
               ),
-            ),
-            const SizedBox(width: 12),
-            const Text(
-              'Smart Plan Generator',
-              style: TextStyle(
-                color: AppColors.trustBlue,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
         centerTitle: true,
         actions: [
@@ -200,13 +193,13 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    AppColors.primaryTeal.withOpacity(0.1),
-                    AppColors.trustBlue.withOpacity(0.05),
+                    AppColors.primaryTeal.withValues(alpha: 0.1),
+                    AppColors.trustBlue.withValues(alpha: 0.05),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: AppColors.primaryTeal.withOpacity(0.3),
+                  color: AppColors.primaryTeal.withValues(alpha: 0.3),
                 ),
               ),
               child: Row(
@@ -214,7 +207,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: AppColors.primaryTeal.withOpacity(0.2),
+                      color: AppColors.primaryTeal.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Icon(
@@ -267,7 +260,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.accentGreen.withOpacity(0.4),
+                        color: AppColors.accentGreen.withValues(alpha: 0.4),
                         blurRadius: 15,
                         offset: const Offset(0, 6),
                       ),
@@ -305,7 +298,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.08),
+                    color: Colors.black.withValues(alpha: 0.08),
                     blurRadius: 20,
                     offset: const Offset(0, -4),
                   ),
@@ -320,7 +313,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
                           color: AppColors.softGray,
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(
-                            color: Colors.grey.withOpacity(0.2),
+                            color: Colors.grey.withValues(alpha: 0.2),
                           ),
                         ),
                         child: TextField(
@@ -351,7 +344,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
                         borderRadius: BorderRadius.circular(16),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.primaryTeal.withOpacity(0.3),
+                            color: AppColors.primaryTeal.withValues(alpha: 0.3),
                             blurRadius: 8,
                             offset: const Offset(0, 2),
                           ),
@@ -393,7 +386,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.primaryTeal.withOpacity(0.3),
+                    color: AppColors.primaryTeal.withValues(alpha: 0.3),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -409,17 +402,17 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: message.isUser
-                    ? AppColors.primaryTeal.withOpacity(0.1)
+                    ? AppColors.primaryTeal.withValues(alpha: 0.1)
                     : Colors.white,
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                   color: message.isUser
-                      ? AppColors.primaryTeal.withOpacity(0.3)
-                      : Colors.grey.withOpacity(0.1),
+                      ? AppColors.primaryTeal.withValues(alpha: 0.3)
+                      : Colors.grey.withValues(alpha: 0.1),
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withValues(alpha: 0.05),
                     blurRadius: 10,
                     offset: const Offset(0, 2),
                   ),
@@ -457,7 +450,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: AppColors.primaryTeal.withOpacity(0.2),
+                color: AppColors.primaryTeal.withValues(alpha: 0.2),
                 shape: BoxShape.circle,
               ),
               child: const Icon(
@@ -498,7 +491,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
+                  color: Colors.black.withValues(alpha: 0.05),
                   blurRadius: 10,
                   offset: const Offset(0, 2),
                 ),
@@ -531,7 +524,8 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
           width: 8,
           height: 8,
           decoration: BoxDecoration(
-            color: AppColors.primaryTeal.withOpacity(0.3 + animValue * 0.7),
+            color:
+                AppColors.primaryTeal.withValues(alpha: 0.3 + animValue * 0.7),
             shape: BoxShape.circle,
           ),
         );
@@ -543,10 +537,10 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.lightMint.withOpacity(0.3),
+        color: AppColors.lightMint.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppColors.accentGreen.withOpacity(0.3),
+          color: AppColors.accentGreen.withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -598,7 +592,7 @@ class _SmartPlanChatPageState extends State<SmartPlanChatPage>
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: AppColors.primaryTeal.withOpacity(0.2),
+                color: AppColors.primaryTeal.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(8),
               ),
               child:

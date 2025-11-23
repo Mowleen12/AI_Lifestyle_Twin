@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class OpenRouterService {
   // TODO: Replace with your actual API key
   static const String _apiKey =
-      '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';
+      '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';
   static const String _baseUrl = 'https://openrouter.ai/api/v1';
   static const String _model = 'x-ai/grok-4.1-fast:free';
 
